@@ -30,7 +30,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
 Plug 'unkiwii/vim-nerdtree-sync'
 " visual plugins
-"Plug 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'
 Plug 'tomasiser/vim-code-dark'
 Plug 'vim-airline/vim-airline'	
 Plug 'vim-airline/vim-airline-themes'
@@ -62,8 +62,8 @@ let g:coc_global_extensions = [
 
 let mapleader=" "
 
-let g:NERDTreeDirArrowExpandable = ' >'
-let g:NERDTreeDirArrowCollapsible = '|'
+let g:NERDTreeDirArrowExpandable = '  <>'
+let g:NERDTreeDirArrowCollapsible = '</>'
 let g:nerdtree_sync_cursorline = 1
 
 
