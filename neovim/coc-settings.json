@@ -1,0 +1,22 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact",
+    "json",
+    "html"
+  ],
+  "eslint.enable": false,
+  "tsserver.enable": true,
+  "deno.enable": false,
+  "explorer.width": 30,
+  "explorer.previewAction.onHover": false,
+  "explorer.file.showHiddenFiles": true,
+  "explorer.keyMappings": {
+    "<tab>": "nodeNext",
+    "<cr>": ["expandable?", "expand", "open"],
+    "v": "open:vsplit"
+  }
+}

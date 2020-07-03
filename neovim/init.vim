@@ -1,8 +1,6 @@
 syntax on
 
 set t_Co=256
-"set encoding=utf-8
-set nohlsearch
 set noerrorbells
 set tabstop=4 softtabstop=4
 set shiftwidth=4
@@ -13,6 +11,7 @@ set noswapfile
 set nobackup
 set undodir=~/.vim/undodir
 set undofile
+set nohls
 set incsearch
 set ruler
 set wildmenu
@@ -22,19 +21,15 @@ set colorcolumn=100
 set ignorecase
 set smartcase
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('/plugged')
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'preservim/nerdtree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
-Plug 'unkiwii/vim-nerdtree-sync'
 " visual plugins
-"Plug 'morhetz/gruvbox'
 Plug 'tomasiser/vim-code-dark'
 Plug 'vim-airline/vim-airline'	
-Plug 'vim-airline/vim-airline-themes'
 
 
 call plug#end()
@@ -42,34 +37,30 @@ call plug#end()
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 filetype plugin indent on
-"let g:gruvbox_contrast_dark = 'hard'
 colorscheme codedark
 set background=dark
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline_theme='codedark'
 
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+autocmd vimenter * CocCommand explorer
+
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | CocCommand explorer ./ | endif
+
 
 "Install coc extensions if not in the vim
 let g:coc_global_extensions = [
         \ 'coc-tsserver',
-        \'coc-eslint',
-        \'coc-prettier',
+        \ 'coc-eslint',
+        \ 'coc-prettier',
+        \ 'coc-explorer',
         \]
-"        \ 'coc-explorer',
-"        \'coc-deno',
-
+"\ 'coc-deno',
+        
 let mapleader=" "
 
-let g:NERDTreeDirArrowExpandable = '  <>'
-let g:NERDTreeDirArrowCollapsible = '</>'
-let g:nerdtree_sync_cursorline = 1
-
-
-"experimental
-" --- The Greatest plugin of all time.  I am not bias
   let g:vim_be_good_floating = 1
 
   " --- vim go (polyglot) settings.
@@ -96,7 +87,7 @@ nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
-nnoremap <leader>n :NERDTree<CR>
+nnoremap <leader>n :CocCommand explorer<CR>
 nnoremap <leader>vs :vsplit<CR>
 nnoremap <leader>f :FZF<CR>
 nnoremap <Leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
@@ -104,6 +95,7 @@ nnoremap <C-l> :Lines<CR>
 nnoremap <leader>bl :BLines<CR>
 nnoremap <silent> <Leader>+ :vertical resize +5<CR>
 nnoremap <silent> <Leader>- :vertical resize -5<CR>
+nnoremap <leader>i :AirlineTheme random<CR>
 nnoremap <C-p> :GFiles<CR>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
