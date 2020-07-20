@@ -31,8 +31,6 @@ omap af <Plug>(coc-funcobj-a)
 nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 " Find symbol of current document.
 nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
-" Search workspace symbols.
-nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
  
 " Give more space for displaying messages.
 set cmdheight=2
