@@ -1,12 +1,10 @@
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
-autocmd vimenter * CocCommand explorer
 
 let g:coc_global_extensions = [
         \ 'coc-tsserver',
         \ 'coc-eslint',
         \ 'coc-prettier',
-        \ 'coc-explorer',
         \]
 
 " GoTo code navigation.
