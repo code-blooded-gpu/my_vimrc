@@ -6,9 +6,11 @@
     "javascriptreact",
     "typescriptreact",
     "json",
+    "vue",
     "html"
   ],
-  "eslint.enable": false,
+  "eslint.enable": true,
+  "prettier.eslintIntegration": true,
   "tsserver.enable": true,
   "explorer.width": 30,
   "explorer.previewAction.onHover": false,
